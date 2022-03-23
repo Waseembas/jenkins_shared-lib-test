@@ -33,10 +33,12 @@ def call(Map pipelineParams) {
         steps {
           script {
             // sleep for 30 seconds
-            sleep 30
+            sleep 5
             // TODO: Below command doesnt makes sense
             sh '''
             #!/bin/bash
+            echo $SERVER_IP
+            echo "/dev/udp/$SERVER_IP/6001"
             echo > /dev/udp/$SERVER_IP/6001 && echo "Port is open"
             #nc -w 30 -v $SERVER_IP 6001 </dev/null; echo $?
             '''
