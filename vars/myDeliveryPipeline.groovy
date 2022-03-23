@@ -39,7 +39,7 @@ def call(Map pipelineParams) {
             #!/bin/bash
             echo $SERVER_IP
             echo "/dev/udp/$SERVER_IP/6001"
-            echo > /dev/udp/$SERVER_IP/6001 && echo "Port is open"
+            echo > /dev/udp/$SERVER_IP:6001 && echo "Port is open"
             #nc -w 30 -v $SERVER_IP 6001 </dev/null; echo $?
             '''
           }
